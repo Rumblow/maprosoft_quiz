@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1c1411;
+  color: #f4eee2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.game-container {
+  display: flex;
+  width: 950px;
+  max-width: 100%;
+  min-height: 520px;
+  background: #231610;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+  border: 1.5px solid #d4a359;
+}
+
+/* PANEL IZQUIERDO */
+.panel-left {
+  width: 290px;
+  background-color: #1e130e;
+  padding: 30px 20px;
+  border-right: 2px solid #d4a359;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+}
+
+.avatar.neutral { background-color: #5c6b73; color: #f4eee2; }
+.avatar.happy { background-color: #2e7d32; color: #ffffff; transform: scale(1.02); }
+.avatar.disappointed { background-color: #b71c1c; color: #ffffff; transform: scale(0.98); }
+
+.role {
+  font-size: 0.85rem;
+  color: #d4a359;
+  margin-top: 4px;
+}
+
+.progress-info {
+  margin-top: auto;
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid #3a281e;
+  padding-top: 15px;
+}
+
+.progress-info p {
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+#score-text { color: #d4a359; }
+
+/* PANEL DERECHO */
+.panel-right {
+  flex: 1;
+  padding: 35px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tag {
+  font-size: 0.8rem;
+  color: #d4a359;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 12px 0 20px 0;
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+/* DIÁLOGOS DE LA INTRODUCCIÓN */
+.dialogue-box {
+  background: #2a1c15;
+  border-left: 4px solid #d4a359;
+  padding: 20px;
+  border-radius: 6px;
+  min-height: 120px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.dialogue-box p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #f4eee2;
+}
+
+/* BOTONES */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opt-btn {
+  background: #3a281e;
+  color: #f4eee2;
+  border: 1px solid #553728;
+  padding: 14px 18px;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  line-height: 1.35;
+  transition: all 0.2s;
+}
+
+.opt-btn:hover {
+  background: #553728;
+  border-color: #d4a359;
+}
+
+.feedback-box {
+  margin-top: 20px;
+  background: #2a1c15;
+  border-left: 4px solid #d4a359;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.feedback-box h4 {
+  color: #d4a359;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.feedback-box p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.main-btn {
+  background: #d4a359;
+  color: #1c1411;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.main-btn:hover { background: #e5b46a; }
+
+.badge {
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.badge.success { background: #2e7d32; color: #ffffff; }
+.badge.error { background: #b71c1c; color: #ffffff; }
+
+.hidden { display: none !important; }
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 10px;
+  border: 3px solid #d4a359;
+  /* El truco clave para que el Pixel Art se vea nítido al cambiar el tamaño */
+  image-rendering: pixelated; 
+  transition: border-color 0.4s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Puedes controlar los estados usando bordes o sutiles tintes en CSS */
+#avatar.neutral { border-color: #5c6b73; }
+#avatar.happy { border-color: #2e7d32; transform: scale(1.02); }
+#avatar.disappointed { border-color: #b71c1c; transform: scale(0.98); }

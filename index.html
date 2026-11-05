@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoProSoft Quest - Evaluación de Selección</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- PANEL IZQUIERDO: EVALUADOR Y AVATAR -->
+    <aside class="panel-left">
+      <!-- Reemplaza el div id="avatar" por este: -->
+  <div class="avatar-container">
+    <img id="avatar" src="Ramirez_neutral.png" alt="Ing. Ramírez" class="avatar neutral">
+    <span id="mood-label">[NEUTRAL]</span>
+  </div>
+      <h2>Ing. Ramírez</h2>
+      <p class="role">Auditor Senior MoProSoft</p>
+
+      <div id="progress-container" class="progress-info hidden">
+        <p id="progress-text">Pregunta 1 de 15</p>
+        <p id="score-text">Aciertos: 0</p>
+      </div>
+    </aside>
+
+    <!-- PANEL DERECHO: CONTENIDO PRINCIPAL -->
+    <main class="panel-right">
+      
+      <!-- FASE 1: CONTEXTO NARRATIVO (INTRODUCCIÓN) -->
+      <div id="intro-screen">
+        <span class="tag">PROCESO DE SELECCIÓN DE PERSONAL</span>
+        <h3>Oficina de Auditoría de Calidad</h3>
+        
+        <div class="dialogue-box">
+          <p id="intro-dialogue-text">Cargando diálogo...</p>
+        </div>
+
+        <button id="intro-btn" class="main-btn" onclick="nextIntroStep()">Continuar ➔</button>
+      </div>
+
+      <!-- FASE 2: CUESTIONARIO -->
+      <div id="quiz-screen" class="hidden">
+        <span id="process-tag" class="tag">CATEGORÍA / TEMA</span>
+        <h3 id="question-text">Cargando pregunta...</h3>
+
+        <div class="options-container">
+          <button class="opt-btn" onclick="selectOption('A')"><span id="optA"></span></button>
+          <button class="opt-btn" onclick="selectOption('B')"><span id="optB"></span></button>
+          <button class="opt-btn" onclick="selectOption('C')"><span id="optC"></span></button>
+        </div>
+
+        <div id="feedback-box" class="feedback-box hidden">
+          <h4>Retroalimentación del Auditor:</h4>
+          <p id="explanation-text"></p>
+          <button class="main-btn" onclick="nextQuestion()">Siguiente Pregunta ➔</button>
+        </div>
+      </div>
+
+      <!-- FASE 3: PANTALLA FINAL DE RESULTADOS -->
+      <div id="end-screen" class="hidden">
+        <span class="tag">DICTAMEN FINAL DE CONTRATACIÓN</span>
+        <h2>Evaluación Finalizada</h2>
+        <p id="final-results"></p>
+        <div id="status-badge" class="badge"></div>
+        <button class="main-btn" onclick="restartQuiz()">Reiniciar Entrevista (Nuevas Preguntas)</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
